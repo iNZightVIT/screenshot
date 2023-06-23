@@ -1,3 +1,11 @@
+#' Crop image
+#' @param file The name of a file (without extension) to add to
+#' @param x0 left cropping point
+#' @param y0 top cropping point
+#' @param x1 right cropping point
+#' @param x2 bottom cropping point
+#' @return NULL, saves image
+#' @export
 crop <- function(file,
                  x0 = 0, x1 = img_info$width[1],
                  y0 = 0, y1 = img_info$height[1]

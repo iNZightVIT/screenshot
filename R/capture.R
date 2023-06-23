@@ -1,3 +1,10 @@
+#' Capture Screenshot
+#'
+#' @param file The name of the file
+#' @param grid optional, if TRUE then a grid is overlaid to help with
+#'             positioning
+#' @return NULL, generates a file called 'file.png'
+#' @export
 capture <- function(file, grid = getOption("screenshot.dev.grid", FALSE)) {
     dir <- dirname(file)
 

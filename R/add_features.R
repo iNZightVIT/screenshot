@@ -1,3 +1,15 @@
+#' Add rectangle
+#'
+#' @param file The name of a file (without extension) to add to
+#' @param x0 left side of the rectangle
+#' @param y0 bottom of the rectangle
+#' @param x1 right side of the rectangle
+#' @param y1 top of the rectangle
+#' @param border_col colour of the border
+#' @param border_width width of the border
+#' @param fill_col colour to will the rectangle
+#' @return NULL, saves image
+#' @export
 add_rect <- function(file, x0, y0, x1, y1,
                      border_col = "red", border_width = 2,
                      fill_col = NA) {
@@ -27,6 +39,16 @@ add_rect <- function(file, x0, y0, x1, y1,
     magick::image_write(img_e, name)
 }
 
+#' Add line
+#' @param file The name of a file (without extension) to add to
+#' @param x0 starting x coordinate
+#' @param y0 starting y coordinate
+#' @param x1 end x coordinate
+#' @param x2 end y coordinate
+#' @param line_col colour of the line
+#' @param line_width width of the line
+#' @return NULL, saves image
+#' @export
 add_line <- function(file, x0, y0, x1 = x0, y1 = y0,
                      line_col = "red",
                      line_width = 2L
@@ -57,6 +79,18 @@ add_line <- function(file, x0, y0, x1 = x0, y1 = y0,
     magick::image_write(img_e, name)
 }
 
+#' Add arrow
+#' @param file The name of a file (without extension) to add to
+#' @param x0 starting x coordinate
+#' @param y0 starting y coordinate
+#' @param x1 end x coordinate
+#' @param x2 end y coordinate
+#' @param arrow_col colour of the line
+#' @param arrow_width width of the line
+#' @param head_angle angle of the arrow head
+#' @param head_length length of the arrow head
+#' @return NULL, saves image
+#' @export
 add_arrow <- function(file, x0, y0, x1 = x0, y1 = y0,
                       arrow_col = "red",
                       arrow_width = 2L,
@@ -91,6 +125,16 @@ add_arrow <- function(file, x0, y0, x1 = x0, y1 = y0,
     magick::image_write(img_e, name)
 }
 
+#' Add circle
+#' @param file The name of a file (without extension) to add to
+#' @param x0 center x coordinate
+#' @param y0 center y coordinate
+#' @param radius size of the circle
+#' @param col colour of the border
+#' @param width width of the border
+#' @param fill_col fill colour
+#' @return NULL, saves image
+#' @export
 add_circle <- function(file, x0, y0, radius,
                        col = "red",
                        width = 2L,
@@ -124,6 +168,18 @@ add_circle <- function(file, x0, y0, radius,
     magick::image_write(img_e, name)
 }
 
+#' Add text
+#' @param file The name of a file (without extension) to add to
+#' @param x0 x position
+#' @param y0 y position
+#' @param text the text to add
+#' @param font_col the colour of the text
+#' @param font_size the size of the text
+#' @param font_style the style of the text (see ?text)
+#' @param justify_x the x justification of the text (see ?text)
+#' @param justify_y the y justification of the text (see ?text)
+#' @return NULL, saves image
+#' @export
 add_text <- function(file, x0, y0, text, 
                      font_col = "red",
                      font_size = 1,

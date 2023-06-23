@@ -1,5 +1,7 @@
-# crawl a directory looking for 'screenshot.R' files
-
+#' Crawl a directory for screenshots
+#' @param dir the directory to crawl
+#' @return NULL, saves images
+#' @export
 crawl <- function(dir) {
     cli::cli_h1("Crawling for screenshot files")
     cli::cli_inform("Directory: {dir}")
