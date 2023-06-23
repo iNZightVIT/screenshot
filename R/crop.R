@@ -2,7 +2,13 @@ crop <- function(file,
                  x0 = 0, x1 = img_info$width[1],
                  y0 = 0, y1 = img_info$height[1]
                  ) {
-    if (missing(file)) stop("You need to specify a path")
+    if (missing(file))
+        file <- getOption("screenshot.last.file")
+
+    if (is.null(file))
+        stop("No file specified")
+
+    cli::cli_progress_step("Cropping")
     dir <- dirname(file)
     name <- sprintf(
         "%s.png",

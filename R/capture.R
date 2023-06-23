@@ -5,7 +5,9 @@ capture <- function(file) {
         "%s.png",
         file.path(dir, file)
     )
+    cli::cli_h3("{basename(name)}")
 
+    cli::cli_progress_step("Capturing")
     Sys.sleep(0.5)
     s <- system(
         sprintf("%s savescreenshotwin %s", 
@@ -24,5 +26,8 @@ capture <- function(file) {
         y0 = 0,
         y1 = img_info$height[1] - 8
     )
+    cli::cli_progress_done()
+
+    options("screenshot.last.file" = file)
     invisible(NULL)
 }
