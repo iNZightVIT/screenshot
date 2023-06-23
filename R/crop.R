@@ -1,0 +1,23 @@
+crop <- function(file,
+                 x0 = 0, x1 = img_info$width[1],
+                 y0 = 0, y1 = img_info$height[1]
+                 ) {
+    if (missing(file)) stop("You need to specify a path")
+    dir <- dirname(file)
+    name <- sprintf(
+        "%s.png",
+        file.path(dir, file)
+    )
+    if (!file.exists(name)) stop("File does not exist")
+
+    img <- magick::image_read(name)
+    img_info <- magick::image_info(img)
+
+    img_cropped <- magick::image_crop(
+        img,
+        magick::geometry_area(x1 - x0, y1 - y0, x0, y0)
+    )
+
+    magick::image_write(img_cropped, name)
+    invisible(NULL)
+}
