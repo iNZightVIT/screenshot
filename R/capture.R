@@ -1,4 +1,4 @@
-capture <- function(file) {
+capture <- function(file, grid = getOption("screenshot.dev.grid", FALSE)) {
     dir <- dirname(file)
 
     name <- sprintf(
@@ -28,6 +28,9 @@ capture <- function(file) {
     )
     cli::cli_progress_done()
 
+    if (grid) add_grid(file)
+
     options("screenshot.last.file" = file)
+
     invisible(NULL)
 }
